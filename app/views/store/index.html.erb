@@ -1,7 +1,18 @@
 <% @categories.each do |category| %>
-  <%= link_to category.title, category_path(category) %>
+  <%= link_to category.title, category_path(category) %><br>
 <% end %>
 
 <% @items.each do |item| %>
-  <p><%= item.title %> | <%= number_to_currency(item.price) %> | <%= button_to 'Add to Cart', line_items_path(item_id: item) %></p>
+  <% if item.inventory > 0 %>
+  <p><%= item.title %> | <%= number_to_currency(item.price.to_f/100) %> | <%= button_to 'Add to Cart', line_items_path(item_id: item) %></p>
+  <% end %>
+<% end %>
+
+<% if current_user && !current_user.current_cart.nil? %>
+<%= link_to "Current Cart", cart_path(current_user.current_cart) %>
+<% end %>
+
+<% if current_user %>
+<%= button_to "Log Out", destroy_user_session_path, method: :delete %>
+
 <% end %>
