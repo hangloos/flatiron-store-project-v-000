@@ -7,9 +7,10 @@ class CartsController < ApplicationController
   def checkout
     @cart = current_user.current_cart
     @cart.inventory_adjustment
-    current_user.current_cart = nil
+    current_user.current_cart_id = nil
     current_user.save
-    redirect_to cart_path
+    #current_user.remove_cart
+    redirect_to cart_path(@cart)
   end
 
 end

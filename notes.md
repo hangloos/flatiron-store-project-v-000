@@ -27,8 +27,14 @@ has_many line_items
 
 category_id:integer
 title:string
+price:integer (maybe some currency?)
+
 
 User: 
+
+email:string
+password:string
+
 
 use devise gem
 
