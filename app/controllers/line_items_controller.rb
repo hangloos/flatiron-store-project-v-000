@@ -11,22 +11,6 @@ class LineItemsController < ApplicationController
       redirect_to store_path, {notice: 'Unable to add item'}
     end
 
-
- #   @item = Item.find(params[:item_id])
-  #  @user = current_user
-   #   if @user.current_cart.nil?
-    #    @cart = Cart.new
-     #   @cart.user = @user
-      #  @cart.save
-       # @user.current_cart = @cart
-    #    new_item = @cart.add_item(@item.id)
-     #   new_item.save
-      #  redirect_to @cart
-   #   else
-    #    @cart = current_user.current_cart
-     #   new_item = @cart.add_item(@item.id)
-      #  redirect_to @cart
-      #end
   end
 
 end
